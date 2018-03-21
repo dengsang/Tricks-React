@@ -1,3 +1,29 @@
 /**
  * Created by DENG on 3/19/2018.
  */
+import React from 'react';
+
+
+// using stateless functional components
+export default function (props) {
+
+    return (
+        <div className="user-profile">
+            <img src={props.imageUrl} />
+            <div className="details">
+                <h1>{props.name}</h1>
+                <a href={'http: //twitter.com/' +props.twitter}>@{props.twitter}</a>
+                <p>Works on <Strong>{props.worksOn}</Strong></p>
+                <h3>My Repos:</h3>
+                <ul className="repos">
+
+                    {props.repos.map(repo => {
+
+                        return ( <li key={repo.id}><a href={repo.html_url}> {repo.name} </a> </li>);
+                    })}
+                </ul>
+
+            </div>
+        </div>
+    );
+}
